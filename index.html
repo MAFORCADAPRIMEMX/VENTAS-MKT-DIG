@@ -447,8 +447,10 @@ document.querySelectorAll('.tb').forEach(function(btn){
 // ── KPIs ──
 function buildKPIs(id,canal,color){
   var s=DATA[canal].summary;
+  var MES_LABEL = {jun:'junio', jul:'julio', ago:'agosto'};
+  var mesActual = MES_LABEL[currentMonth] || 'el mes';
   var items=[
-    {lbl:'Ventas',                         val:fmt(s.total_ventas),    sub:'Activaciones junio',          c:color},
+    {lbl:'Ventas',                         val:fmt(s.total_ventas),    sub:'Activaciones '+mesActual,     c:color},
     {lbl:'Leads',                          val:fmt(s.total_leads),     sub:'Registros en el mes',         c:color},
     {lbl:'Tasa de Conversi\u00f3n',        val:fmtP(s.tc_pct),        sub:'Ventas / Leads',              c:color},
     {lbl:'Leads Mal Gestionados',          val:fmt(s.mismanaged!=null?s.mismanaged:s.sin_seguimiento), sub:'Sin seg. + PERDIDO sin razón',  c:'#dc2626'},
